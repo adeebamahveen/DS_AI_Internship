@@ -60,3 +60,83 @@ for row in counts:
 
 # Close connection
 conn.close()
+
+
+#task 2
+import sqlite3
+import pandas as pd
+
+# 1. Connect to your SQLite database
+conn = sqlite3.connect("internship.db")
+
+# 2. Write the JOIN query
+join_query = """
+SELECT interns.name,
+       interns.track,
+       mentors.mentor_name
+FROM interns
+INNER JOIN mentors
+    ON interns.track = mentors.track;
+"""
+
+# 3. Load the JOIN result directly into pandas
+df = pd.read_sql_query(join_query, conn)
+
+# 4. Display the DataFrame
+print(df)
+
+# 5. Close connection
+conn.close()
+import sqlite3
+
+conn = sqlite3.connect("internship.db")
+cur = conn.cursor()
+
+cur.execute("PRAGMA table_info(interns);")
+print(cur.fetchall())
+
+conn.close()
+
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect("internship.db")
+
+join_query = """
+SELECT interns.intern_name,
+       interns.track,
+       mentors.mentor_name
+FROM interns
+INNER JOIN mentors
+    ON interns.track = mentors.track;
+"""
+
+df = pd.read_sql_query(join_query, conn)
+print(df)
+
+conn.close()
+
+import sqlite3
+import pandas as pd
+
+# 1. Connect to your SQLite database
+conn = sqlite3.connect("internship.db")
+
+# 2. Write the JOIN query
+join_query = """
+SELECT interns.name,
+       interns.track,
+       mentors.mentor_name
+FROM interns
+INNER JOIN mentors
+    ON interns.track = mentors.track;
+"""
+
+# 3. Load the JOIN result directly into pandas
+df = pd.read_sql_query(join_query, conn)
+
+# 4. Display the DataFrame
+print(df)
+
+# 5. Close connection
+conn.close()
